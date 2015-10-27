@@ -22,3 +22,10 @@ bc_byakhees = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visi
               0, TreasureKind::ARMOR, TreasureKind::ARMOR)
 byakhees = Monster.new("3 Byakhees de bonanza", 8, bc_byakhees, p_byakhees)
 monsters.push(byakhees)
+
+# Los hondos
+bc_hondos = BadConsequence.newDeath("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.")
+p_hondos = Prize.new(2, 1)
+los_hondos = Monster.new("Los hondos", 8, bc_hondos, p_hondos)
+monsters.push(los_hondos)
+monsters.push(byakhees)
