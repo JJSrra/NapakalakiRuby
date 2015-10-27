@@ -22,5 +22,3 @@ bc_byakhees = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visi
               0, TreasureKind::ARMOR, TreasureKind::ARMOR)
 byakhees = Monster.new("3 Byakhees de bonanza", 8, bc_byakhees, p_byakhees)
 monsters.push(byakhees)
-
-puts monsters[0]
