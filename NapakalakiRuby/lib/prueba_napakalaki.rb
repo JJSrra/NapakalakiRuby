@@ -9,23 +9,18 @@ require_relative "treasure_kind.rb"
 
 monsters = Array.new
 
-premio = Prize.new(1031, 7)
-mal_rollo1 = BadConsequence.newDeath("Se conecta. Estas muerto.")
-halconHodgson = Monster.new("Halcon cuco del Sr. Hodgson", 1031, mal_rollo1, premio)
+# Bicéfalo
+p_bicefalo = Prize.new(1, 1)
+bc_bicefalo = BadConsequence.newLevelSpecificTreasures("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.", 
+              3, [TreasureKind::ONEHAND, TreasureKind::ONEHAND, TreasureKind::BOTHHANDS], nil)
+bicefalo = Monster.new("Bicefalo", 20, bc_bicefalo, p_bicefalo)
+monsters.push(bicefalo)
 
-premio2 = Prize.new(0, 0)
-mal_rollo2 = BadConsequence.newLevelNumberOfTreasures("Eeeeeehhhhhh... Pierdes muchas horas de clase.", 9, 5, 4)
-sevilla = Monster.new("Sevilla", 9001, mal_rollo2, premio2)
-
-premio3 = Prize.new("a-bx=m", "\n\t(10)\n\t(2 )")
-mal_rollo3 = BadConsequence.newLevelSpecificTreasures("Te asusta, pero de buen rollo. Pierdes la cabeza.", 0, [TreasureKind::HELMET], nil)
-alem = Monster.new("Algebra lineal y estructuras matematicas", 19, mal_rollo3, premio3)
-
-monsters.push(halconHodgson)
+# 3 Byakhees de bonanza
+p_byakhees = Prize.new(2, 1)
+bc_byakhees = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible y otra oculta.", 
+              0, TreasureKind::ARMOR, TreasureKind::ARMOR)
+byakhees = Monster.new("3 Byakhees de bonanza", 8, bc_byakhees, p_byakhees)
+monsters.push(byakhees)
 
 puts monsters[0]
-#puts halconHodgson
-#puts "\n"
-#puts sevilla
-#puts "\n"
-#puts alem
