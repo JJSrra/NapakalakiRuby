@@ -24,7 +24,7 @@ byakhees = Monster.new("3 Byakhees de bonanza", 8, bc_byakhees, p_byakhees)
 monsters.push(byakhees)
 
 # Los hondos
-bc_hondos = BadConsequence.newDeath("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.")
+bc_hondos = BadConsequence.newDeath("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estas muerto.")
 p_hondos = Prize.new(2, 1)
 hondos = Monster.new("Los hondos", 8, bc_hondos, p_hondos)
 monsters.push(hondos)
@@ -84,3 +84,54 @@ bc_tinieblas = BadConsequence.newLevelNumberOfTreasures("Toses los pulmones y pi
 p_tinieblas = Prize.new(1, 1)
 tinieblas = Monster.new("La que redacta en las tinieblas", 2, bc_tinieblas, p_tinieblas)
 monsters.push(tinieblas)
+
+# Semillas Cthulhu
+bc_semillas = BadConsequence.newLevelNumberOfTreasures("Pierdes 2 niveles y 2 tesoros ocultos.",
+							2, 0, 2)
+p_semillas = Prize.new(2, 1)
+semillas_cthulhu = Monster.new("Semillas Cthulhu", 4, bc_semillas, p_semillas)
+monsters.push(semillas_cthulhu)
+
+# Dameargo
+bc_dameargo = BadConsequence.newLevelSpecificTreasures("Te intentas escaquear. Pierdes una mano visible.",
+							0, [TreasureKind::ONEHAND], [])
+p_dameargo = Prize.new(2, 1)
+dameargo = Monster.new("Dameargo", 1, bc_dameargo, p_dameargo)
+monsters.push(dameargo)
+
+# Pollipólipo volante
+bc_pollipolipo = BadConsequence.newLevelNumberOfTreasures("Da mucho asquito. Pierdes 3 niveles.", 3, 0, 0)
+p_pollipolipo = Prize.new(1, 1)
+pollipolipo = Monster.new("Pollipolipo volante", 3, bc_pollipolipo, p_pollipolipo)
+monsters.push(pollipolipo)
+
+# Yskhtihyssggoth
+bc_impronunciable = BadConsequence.newDeath("No le hace gracia que pronuncien mal su nombre. Estas muerto.")
+p_impronunciable = Prize.new(3, 1)
+impronunciable = Monster.new("Yskhtihyssggoth", 12, bc_impronunciable, p_impronunciable)
+monsters.push(impronunciable)
+
+# Familia felíz
+bc_familia = BadConsequence.newDeath("La familia te atrapa. Estas muerto.")
+p_familia = Prize.new(4, 1)
+familia = Monster.new("Familia feliz", 1, bc_familia, p_familia)
+monsters.push(familia)
+
+# Roboggoth
+bc_roboggoth = BadConsequence.newLevelSpecificTreasures("La quinta directiva primaria te obliga a perder 2 niveles y 1 tesoro de dos manos visible.",
+							 2, [TreasureKind::BOTHHANDS], [])
+p_roboggoth = Prize.new(2, 1)
+roboggoth = Monster.new("Roboggoth", 8, bc_roboggoth, p_roboggoth)
+monsters.push(roboggoth)
+
+# El espia
+bc_espia = BadConsequence.newLevelSpecificTreasures("Te asusta en la noche. Pierdes un casco visible.", 0, [TreasureKind::HELMET], [])
+p_espia = Prize.new(1, 1)
+espia = Monster.new("El espia", 5, bc_espia, p_espia)
+monsters.push(espia)
+
+# El lenguas
+bc_lenguas = BadConsequence.newLevelNumberOfTreasures("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.", 2, 5, 0)
+p_lenguas = Prize.new(1, 1)
+lenguas = Monster.new("El lenguas", 20, bc_lenguas, p_lenguas)
+monsters.push(lenguas)
