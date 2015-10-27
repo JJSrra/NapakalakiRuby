@@ -26,6 +26,6 @@ monsters.push(byakhees)
 # Los hondos
 bc_hondos = BadConsequence.newDeath("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.")
 p_hondos = Prize.new(2, 1)
-los_hondos = Monster.new("Los hondos", 8, bc_hondos, p_hondos)
-monsters.push(los_hondos)
+hondos = Monster.new("Los hondos", 8, bc_hondos, p_hondos)
+monsters.push(hondos)
 monsters.push(byakhees)
