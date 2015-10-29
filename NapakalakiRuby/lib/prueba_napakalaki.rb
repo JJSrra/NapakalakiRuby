@@ -168,6 +168,7 @@ monsters.each { |monster|
     puts "\n"
   end
 }
+
 # Mostrar monstruos con mal rollo que implica solo la pérdida de niveles
 puts "Monstruos cuyo mal rollo solo implica la pérdida de niveles"
 monsters.each { |monster|
