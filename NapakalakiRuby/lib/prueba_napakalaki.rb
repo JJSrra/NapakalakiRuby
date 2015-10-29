@@ -1,3 +1,4 @@
+#encoding: utf-8
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
@@ -7,6 +8,7 @@ require_relative "bad_consequence"
 require_relative "monster.rb"
 require_relative "treasure_kind.rb"
 
+# Lista de monstruos
 monsters = Array.new
 
 # Bicéfalo
@@ -135,3 +137,15 @@ bc_lenguas = BadConsequence.newLevelNumberOfTreasures("Menudo susto te llevas. P
 p_lenguas = Prize.new(1, 1)
 lenguas = Monster.new("El lenguas", 20, bc_lenguas, p_lenguas)
 monsters.push(lenguas)
+
+
+#-------------------------------
+
+# Monstrar monstruos con nivel superior a 10
+puts "Monstruos con nivel de combate superior a 10:\n"
+monsters.each { |monster|
+	if monster.level > 10 then
+		puts monster
+		puts "\n"
+	end
+}
