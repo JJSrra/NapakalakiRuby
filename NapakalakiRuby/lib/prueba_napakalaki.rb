@@ -12,7 +12,7 @@ monsters = Array.new
 # Bicéfalo
 p_bicefalo = Prize.new(1, 1)
 bc_bicefalo = BadConsequence.newLevelSpecificTreasures("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos.", 
-              3, [TreasureKind::ONEHAND, TreasureKind::ONEHAND, TreasureKind::BOTHHANDS], nil)
+              3, [TreasureKind::ONEHAND, TreasureKind::ONEHAND, TreasureKind::BOTHHANDS], [])
 bicefalo = Monster.new("Bicefalo", 20, bc_bicefalo, p_bicefalo)
 monsters.push(bicefalo)
 
@@ -31,14 +31,14 @@ monsters.push(hondos)
 
 # Chibithulhu
 bc_chibi = BadConsequence.newLevelSpecificTreasures("Embobados con el lindo primigenio te descartas de tu casco visible.",
-           0, TreasureKind::HELMET, nil)
+           0, TreasureKind::HELMET, [])
 p_chibi = Prize.new(1, 1)
 chibi = Monster.new("Chibithulhu", 2, bc_chibi, p_chibi)
 monsters.push(chibi)
 
 # El sopor de Dunwich
 bc_dunwich = BadConsequence.newLevelSpecificTreasures("El primordial bostezo contagioso. Pierdes tu calzado visible.", 
-             0, TreasureKind::SHOES, nil)
+             0, TreasureKind::SHOES, [])
 p_dunwich = Prize.new(1, 1)
 dunwich = Monster.new("El sopor de Dunwich", 2, bc_dunwich, p_dunwich)
 monsters.push(dunwich)
@@ -59,14 +59,14 @@ monsters.push(gorron)
 
 # H.P. Munchcraft
 bc_munchcraft = BadConsequence.newLevelSpecificTreasures("Pierdes la armadura visible", 
-                0, TreasureKind::ARMOR, nil)
+                0, TreasureKind::ARMOR, [])
 p_munchcraft = Prize.new(2, 1)
 munchcraft = Monster.new("H.P. Munchcraft", 6, bc_munchcraft, p_munchcraft)
 monsters.push(munchcraft)
 
 # Bichgooth
 bc_bichgooth = BadConsequence.newLevelSpecificTreasures("Sientes bichos bajo la ropa. Descarta la armadura visible.", 
-               0, TreasureKind::ARMOR, nil)
+               0, TreasureKind::ARMOR, [])
 p_bichgooth = Prize.new(1, 1)
 bichgooth = Monster.new("Bichgooth", 2, bc_bichgooth, p_bichgooth)
 monsters.push(bichgooth)
