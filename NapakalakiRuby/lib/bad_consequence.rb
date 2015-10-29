@@ -47,4 +47,3 @@ class BadConsequence
 		"#{@text}\n\tNiveles: #{@levels}\n\tNumero tesoros visibles: #{@nVisible}\n\tNumero tesoros ocultos: #{@nHidden}\n\tTesoros visibles especificos: #{@specificVisibleTreasures}\n\tTesoros ocultos especificos: #{@specificHiddenTreasures}\n\tMuerte: #{@death}"
 	end
 end
-
