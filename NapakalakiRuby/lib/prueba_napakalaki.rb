@@ -149,3 +149,22 @@ monsters.each { |monster|
 		puts "\n"
 	end
 }
+
+# Mostrar monstruos con buen rollo con ganancia de niveles superior a 1
+puts "Monstruos con un buen rollo con ganancia de niveles superior a 1:\n"
+monsters.each { |monster|
+  if monster.prize.levels > 1 then
+    puts monster
+    puts "\n"
+  end
+}
+
+# Mostrar monstruos cuyo mal rollo suponga la pérdida de un tipo de tesoro específico
+puts "Monstruos cuyo mal rollo suponga la perdida de un tipo de tesoro especifico:\n"
+monsters.each { |monster|
+  bc = monster.badConsequence
+  if (bc.death != true) and (bc.specificHiddenTreasures != [] or bc.specificVisibleTreasures != [] ) then
+    puts monster
+    puts "\n"
+  end
+}
