@@ -23,7 +23,7 @@ class BadConsequence
 		nuevo_bc = allocate
 		
 		# Inicializa el objeto
-		nuevo_bc.send(:initialize, aText, someLevels, someVisibleTreasures, someHiddenTreasures, nil, nil, nil)
+		nuevo_bc.send(:initialize, aText, someLevels, someVisibleTreasures, someHiddenTreasures, [], [], false)
 		
 		# Return
 		nuevo_bc
@@ -31,7 +31,7 @@ class BadConsequence
 	
 	def self.newLevelSpecificTreasures(aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
 		nuevo_bc = allocate
-		nuevo_bc.send(:initialize, aText, someLevels, nil, nil, someSpecificVisibleTreasures, someSpecificHiddenTreasures, nil)
+		nuevo_bc.send(:initialize, aText, someLevels, nil, nil, someSpecificVisibleTreasures, someSpecificHiddenTreasures, false)
 		
 		nuevo_bc
 	end
