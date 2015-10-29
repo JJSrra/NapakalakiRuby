@@ -141,10 +141,23 @@ monsters.push(lenguas)
 
 #-------------------------------
 
-# Monstrar monstruos con nivel superior a 10
-puts "Monstruos con nivel de combate superior a 10:\n"
+# Mostrar monstruos con nivel superior a 10
+#puts "Monstruos con nivel de combate superior a 10:\n"
+#monsters.each { |monster|
+#	if monster.level > 10 then
+#		puts monster
+#		puts "\n"
+#	end
+#}
+
+# Mostrar monstruos con mal rollo que implica solo la pérdida de niveles
+puts "Monstruos cuyo mal rollo solo implica la pérdida de niveles"
 monsters.each { |monster|
-	if monster.level > 10 then
+	bc = monster.badConsequence
+
+	if  not bc.death and bc.levels > 0 and bc.nVisible == 0 and bc.nHidden == 0 and
+			bc.specificVisibleTreasures == []and bc.specificHiddenTreasures == [] then
+
 		puts monster
 		puts "\n"
 	end
