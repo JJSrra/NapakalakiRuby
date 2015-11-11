@@ -1,3 +1,4 @@
+#encoding: utf-8
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
@@ -15,6 +16,42 @@ class CardDealer
   end
   
   def init_treasure_card_deck
+		# Sí mi amo
+		si_mi_amo = Treasure.new("¡Sí mi amo!", 4, TreasureKind::HELMET)
+		@unused_treasures.push(si_mi_amo)
+		
+		# Botas de investigación
+		botas_investigacion = Treasure.new("Botas de investigación", 3, TreasureKind::SHOES)
+		@unused_treasures.push(botas_investigacion)
+		
+		# Capucha de Cthulhu
+		capucha_cthulhu = Treasure.new("Capucha de Cthulhu", 3, TreasureKind::HELMET)
+		@unused_treasures.push(capucha_cthulhu)
+		
+		# A prueba de babas
+		prueba_babas = Treasure.new("A prueba de babas", 2, TreasureKind::ARMOR)
+		@unused_treasures.push(prueba_babas)
+		
+		# Botas de lluvia ácida
+		botas_acido = Treasure.new("Botas de lluvia ácida", 1, TreasureKind::BOTHHANDS)
+		@unused_treasuers.push(botas_acido)
+		
+		# Casco minero
+		casco_minero = Treasure.new("Casco minero", 2, TreasureKind::HELMET)
+		@unused_treasures.push(casco_minero)
+		
+		# Ametralladora Thompson
+		thompson = Treasure.new("Ametralladora thompson", 4, TreasureKind::BOTHHANDS)
+		@unused_treasures.push(thompson)
+		
+		#Camiseta de la UGR
+		ugr = Treasure.new("Camiseta de la UGR", 1, TreasureKind::ARMOR)
+		@unused_treasures.push(ugr)
+		
+		# Clavo de rail ferroviario
+		clavo_rail = Treasure.new("Clavo de rail ferroviario", 3, TreasureKind::ONEHAND)
+		@unused_treasures.puhs(clavo_rail)
+		
     # Cuchillo de sushi arcano
     cuchillo_sushi = Treasure.new("Cuchillo de sushi arcano", 2, TreasureKind::ONEHAND)
     @unused_treasures.push(cuchillo_sushi)
@@ -50,6 +87,29 @@ class CardDealer
     # La rebeca metálica
     rebeca = Treasure.new("La rebeca metalica", 2, TreasureKind::ARMOR)
     @unused_treasures.push(rebeca)
+		
+		# Lanzallamas
+		lanzallamas = Treasure.new("Lanzallamas", 4, TreasureKind::BOTHHANDS)
+		@unused_treasures.push(lanzallamas)
+		
+		# Necrocomicón
+		necrocomicon = Treasure.new("Necrocomicón", 1, TreasureKind::ONEHAND)
+		@unused_treasures.push(necrocomicon)
+		
+		# Necronomicón
+		necronomicon = Treasure.new("Necronomicón", 5, TreasureKind::BOTHHANDS)
+		@unused_treasures.push(necronomicon)
+		
+		# Linterna dos manos
+		linterna_dos_manos = Treasure.new("Linterna a dos manos", 3, TreasureKind::BOTHHANDS)
+		@unused_treasures.push(linterna_dos_manos)
+		
+		# Necrognomicón
+		necrognomicon = Treasure.new("Necrognomicón", 2, TreasureKind::ONEHAND)
+		@unused_treasures.push(necrognomicon)
+		
+		# Necrotelecom
+		necrotelecom = Treasure.new("Necrotelecom", 2, TreasureKind::HELMET)
     
     # Mazo de los antiguos
     mazo_antiguos = Treasure.new("Mazo de los antiguos", 3, TreasureKind::ONEHAND)
