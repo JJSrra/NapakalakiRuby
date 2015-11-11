@@ -110,6 +110,7 @@ class CardDealer
 		
 		# Necrotelecom
 		necrotelecom = Treasure.new("Necrotelecom", 2, TreasureKind::HELMET)
+		@unused_treasures.push(necrotelecom)
     
     # Mazo de los antiguos
     mazo_antiguos = Treasure.new("Mazo de los antiguos", 3, TreasureKind::ONEHAND)
