@@ -4,6 +4,12 @@
 # and open the template in the editor.
 
 require 'singleton'
+require_relative 'prize.rb'
+require_relative 'treasure.rb'
+require_relative 'monster.rb'
+require_relative 'treasure_kind.rb'
+require_relative 'bad_consequence.rb'
+
 class CardDealer
   attr_reader :unused_monsters, :unused_treasures, :used_monsters, :used_treasures
   
@@ -298,3 +304,5 @@ class CardDealer
     
   end
 end
+
+puts BadConsequence.MAXTREASURES
