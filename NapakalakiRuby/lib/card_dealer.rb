@@ -191,7 +191,7 @@ class CardDealer
     
     # El gorrón en el umbral
     bc_gorron = BadConsequence.newLevelNumberOfTreasures("Pierdes todos tus tesoros visibles.", 
-      0, 5, 0)
+      0, BadConsequence::MAXTREASURES, 0)
     p_gorron = Prize.new(3, 1)
     gorron = Monster.new("El gorron en el umbral", 10, bc_gorron, p_gorron)
     @unused_monsters.push(gorron)
