@@ -304,5 +304,3 @@ class CardDealer
     
   end
 end
-
-puts BadConsequence.MAXTREASURES
