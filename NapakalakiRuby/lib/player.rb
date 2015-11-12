@@ -12,15 +12,15 @@ require_relative "combat_result.rb"
 class Player
 	attr_reader :name, :dead, :hiddenTreasures, :visibleTreasures, :level
 	
-	@@MAXLEVEL = 10
+	MAXLEVEL = 10
 	
   def initialize(name)
 		@name = name
 		@level = 0
 		@dead = false
 		@canISteal = true
-		@visibleTreasures = array.new
-		@hiddenTreasures = array.new
+		@visibleTreasures = Array.new
+		@hiddenTreasures = Array.new
 		@enemy = nil
 		@pendingBadConsequence = BadConsequence.newLevelNumberOfTreasures("", 0, 0, 0)
   end

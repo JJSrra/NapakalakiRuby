@@ -6,7 +6,7 @@
 class BadConsequence
 	attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificVisibleTreasures, :specificHiddenTreasures
 	
-	@@MAXTREASURES = 10
+	MAXTREASURES = 10
 	
   def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,
 				someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
