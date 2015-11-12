@@ -2,6 +2,13 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+require_relative "prize.rb"
+require_relative "bad_consequence"
+require_relative "treasure.rb"
+require_relative "monster.rb"
+require_relative "treasure_kind.rb"
+require_relative "combat_result.rb"
+
 class Player
 	attr_reader :name, :dead, :hiddenTreasures, :visibleTreasures, :level
 	
