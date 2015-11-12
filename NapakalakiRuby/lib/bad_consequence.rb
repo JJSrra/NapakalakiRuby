@@ -4,14 +4,16 @@
 # and open the template in the editor.
 
 class BadConsequence
-	attr_reader :text, :levels, :nVisible, :nHidden, :death, :specificVisibleTreasures, :specificHiddenTreasures
+	attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificVisibleTreasures, :specificHiddenTreasures
+	
+	@@MAXTREASURES = 10
 	
   def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,
 				someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
     @text = aText
 		@levels = someLevels
-		@nVisible = someVisibleTreasures
-		@nHidden = someHiddenTreasures
+		@nVisibleTreasures = someVisibleTreasures
+		@nHiddenTreasures = someHiddenTreasures
 		@death = death
 		
 		@specificHiddenTreasures = someSpecificHiddenTreasures
@@ -42,6 +44,23 @@ class BadConsequence
 		nuevo_bc.send(:initialize, aText, nil, nil, nil, nil, nil, true)
 		
 		nuevo_bc
+	end
+	
+	def is_empty
+		return (@nVisibleTreasures == 0 and nHiddenTreasures == 0 and
+						@specificVisibleTreasures.empty? and @specificHiddenTreasures.empty?)
+	end
+	
+	def substract_visible_treasure(t)
+		
+	end
+	
+	def substract_hidden_treasure(t)
+		
+	end
+	
+	def adjust_to_fit_treasure_lists(v, h)
+		
 	end
 	
 	def to_s
