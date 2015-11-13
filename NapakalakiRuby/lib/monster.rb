@@ -3,25 +3,27 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-class Monster
-	attr_reader :name, :combat_level, :bad_consequence
-	
-  def initialize(name, level, bad_consequence, prize)
-    @name = name
-		@combat_level = level
-		@bad_onsequence = bad_consequence
-		@prize = prize
-  end
-  
-  def get_levels_gained
-    @prize.levels
-  end
-  
-  def get_treasures_gained
-    @prize.treasures
-  end
-	
-	def to_s
-		"Nombre: #{@name}\nNivel: #{@level}\nMal rollo: #{@badConsequence}\nBuen rollo: #{@prize}"
+module Napakalaki
+	class Monster
+		attr_reader :name, :combat_level, :bad_consequence
+
+		def initialize(name, level, bad_consequence, prize)
+			@name = name
+			@combat_level = level
+			@bad_onsequence = bad_consequence
+			@prize = prize
+		end
+
+		def get_levels_gained
+			@prize.levels
+		end
+
+		def get_treasures_gained
+			@prize.treasures
+		end
+
+		def to_s
+			"Nombre: #{@name}\nNivel: #{@level}\nMal rollo: #{@badConsequence}\nBuen rollo: #{@prize}"
+		end
 	end
 end
