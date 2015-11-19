@@ -286,11 +286,23 @@ module Napakalaki
 		end
 
 		def next_treasure
-
+      if (@unused_treasures.size == 0)
+        @used_treasures.fill(@unused_treasures)
+        @used_treasures.clear
+        shuffle_treasures
+      end
+      
+      @unused_treasures.shift
 		end
 
 		def next_monster
-
+      if (@unused_monsters.size == 0)
+        @used_monsters.fill(@unused_monsters)
+        @used_monsters.clear
+        shuffle_monsters
+      end
+      
+      @unused_monsters.shift
 		end
 
 		def give_treasure_back(t)
