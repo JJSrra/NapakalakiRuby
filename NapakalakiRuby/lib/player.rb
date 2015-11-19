@@ -154,7 +154,7 @@ module Napakalaki
     end
 
     def give_me_a_treasure
-
+			return @hiddenTreasures.at(random(@hiddenTreasures.size))
     end
 
     def can_you_give_me_a_treasure

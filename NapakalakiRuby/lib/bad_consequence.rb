@@ -53,11 +53,11 @@ module Napakalaki
 		end
 
 		def substract_visible_treasure(t)
-
+			# todo
 		end
 
 		def substract_hidden_treasure(t)
-
+			# todo
 		end
 
 		def adjust_to_fit_treasure_lists(v, h)
