@@ -81,18 +81,21 @@ module Napakalaki
         array_enemies.shuffle!
         
         abort = false
-        while (!abort)
-          for i in 0..array_players.size-1
-            if (array_players.at(i) != array_enemies.at(i) && array_players.at(i+1) != array_enemies.at(i+1) && !finished)
-              # Asignar al jugador players[1] el enemigo enemies[i] y sacarlos de los arrays
+        i = 0
+        # while (!abort)
+        #   for i in 0..array_players.size-1
+        while (!abort && i < array_players.size)
+          if (array_players.at(i) != array_enemies.at(i) && array_players.at(i+1) != array_enemies.at(i+1) && !finished)
+            # Asignar al jugador players[1] el enemigo enemies[i] y sacarlos de los arrays
+            @players.at(array_players.shift).set_enemy(@players.at(array_enemies.shift))
+            i++
+            if (i == array_players.size)
               @players.at(array_players.shift).set_enemy(@players.at(array_enemies.shift))
-              if (i+1 == array_players.size)
-                @players.at(array_players.shift).set_enemy(@players.at(array_enemies.shift))
-                finished = true
-              end
-            else
-              abort = true
+              finished = true
             end
+          else
+            abort = true
+            i = 0
           end
         end
       end
