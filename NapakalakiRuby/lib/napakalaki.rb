@@ -2,6 +2,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+require_relative 'combat_result.rb'
+
 module Napakalaki
   require 'singleton'
   class Napakalaki
@@ -12,7 +14,7 @@ module Napakalaki
     def initialize
       @currentPlayer = nil
       @currentMonster = nil
-      @players = array.new
+      @players = Array.new
     end
 
     def develop_combat
@@ -39,13 +41,15 @@ module Napakalaki
 
     end
 
-    def end_of_game
-
+    def end_of_game(result)
+			result == CombatResult::WINGAME
     end
 
     private
     def init_players(names)
-
+			names.each { |name| 
+				@players.push(Player.new(name))
+			}
     end
 
     def next_turn_allowed
