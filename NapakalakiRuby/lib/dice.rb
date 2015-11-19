@@ -13,5 +13,11 @@ module Napakalaki
 		def next_number
 			return 1 + rand(6)
 		end
+    dado = Dice.instance
+    puts dado.next_number
+    puts dado.next_number
+    puts dado.next_number
+    puts dado.next_number
+    puts dado.next_number
 	end
 end
