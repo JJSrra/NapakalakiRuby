@@ -286,9 +286,10 @@ module Napakalaki
 		end
 
 		def next_treasure
-      if (@unused_treasures.size == 0)
-        @used_treasures.fill(@unused_treasures)
-        @used_treasures.clear
+      if (@unused_treasures.empty?)
+				@unused_treasures.concat(@used_treasures)
+				@used_treasures.clear
+				
         shuffle_treasures
       end
       
@@ -296,10 +297,11 @@ module Napakalaki
 		end
 
 		def next_monster
-      if (@unused_monsters.size == 0)
-        @used_monsters.fill(@unused_monsters)
-        @used_monsters.clear
-        shuffle_monsters
+      if (@unused_monsters.empty?)
+				@unused_monsters.concat(@used_monsters)
+				@used_monsters.clear
+				
+        shuffle_treasures
       end
       
       @unused_monsters.shift
