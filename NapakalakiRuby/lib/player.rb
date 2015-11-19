@@ -106,7 +106,33 @@ module Napakalaki
     end
 
     def can_make_treasure_visible(t)
-
+			allowed = true
+			onehands = 0
+			
+			if (t.type == TreasureKind::BOTHHANDS)
+				@visibleTreasures.each { |treasure| 
+					if (treasure.type == TreasureKind::BOTHHANDS or treasure.type == TreasureKind::ONEHAND)
+						allowed = false
+					end
+				}
+			elsif (t.type == TreasureKind::ONEHAND)
+				@visibleTreasures.each { |treasure| 
+					if (treasure.type == TreasureKind::ONEHAND)
+						onehands += 1
+					end
+					if (treasure.type == TreasureKind::BOTHHANDS or onehands >= 2)
+						allowed = false
+					end
+				}
+			else
+				@visibleTreasures.each { |treasure| 
+					if (treasure.type == t.type)
+						allowed = false
+					end
+				}
+			end
+			
+			allowed
     end
 
     def how_many_visible_treasures(tKind)
