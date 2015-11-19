@@ -82,23 +82,24 @@ module Napakalaki
         
         abort = false
         i = 0
-        # while (!abort)
-        #   for i in 0..array_players.size-1
-        while (!abort && i < array_players.size)
-          if (array_players.at(i) != array_enemies.at(i) && array_players.at(i+1) != array_enemies.at(i+1) && !finished)
+        while (!abort && i < array_players.size - 1)
+          if (array_players.at(i) != array_enemies.at(i) and array_players.at(i+1) != array_enemies.at(i+1) and !finished)
             # Asignar al jugador players[1] el enemigo enemies[i] y sacarlos de los arrays
             @players.at(array_players.shift).set_enemy(@players.at(array_enemies.shift))
-            i++
-            if (i == array_players.size)
-              @players.at(array_players.shift).set_enemy(@players.at(array_enemies.shift))
-              finished = true
-            end
-          else
+            i = i + 1
+					else
             abort = true
             i = 0
           end
         end
+				
+				if !abort
+					finished = true
+				end
       end
+			
+			# Asignar el último enemigo
+			@players.at(array_players.shift).set_enemy(@players.at(array_enemies.shift))
     end
   end
 end
