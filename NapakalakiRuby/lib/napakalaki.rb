@@ -4,6 +4,7 @@
 
 require_relative 'player.rb'
 require_relative 'combat_result.rb'
+require_relative 'card_dealer.rb'
 
 module Napakalaki
   require 'singleton'
@@ -16,6 +17,7 @@ module Napakalaki
       @currentPlayer = nil
       @currentMonster = nil
       @players = Array.new
+			@dealer = CardDealer.instance
     end
 
     def develop_combat
@@ -35,7 +37,11 @@ module Napakalaki
     end
 
     def init_game(players)
-
+			init_players(players)
+			set_enemies
+			
+			@dealer.init_cards
+			next_turn
     end
 
     def next_turn
