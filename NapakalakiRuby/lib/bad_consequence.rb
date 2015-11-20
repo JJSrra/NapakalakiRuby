@@ -42,7 +42,7 @@ module Napakalaki
 
 		def self.newDeath(aText)
 			nuevo_bc = allocate
-			nuevo_bc.send(:initialize, aText, nil, nil, nil, nil, nil, true)
+			nuevo_bc.send(:initialize, aText, nil, nil, nil, Array.new, Array.new, true)
 
 			nuevo_bc
 		end
@@ -53,11 +53,25 @@ module Napakalaki
 		end
 
 		def substract_visible_treasure(t)
-			# todo
+      if (@specificVisibleTreasures.empty? and @nVisibleTreasures > 0)
+        @nVisibleTreasures -= 1
+      else
+        index = @specificVisibleTreasures.find_index(t.type)
+        if (index != nil)
+          @specificVisibleTreasures.delete_at(index)
+        end
+      end
 		end
 
 		def substract_hidden_treasure(t)
-			# todo
+			if (@specificHiddenTreasures.empty? and @nHiddenTreasures > 0)
+        @nHiddenTreasures -= 1
+      else
+        index = @specificHiddenTreasures.find_index(t.type)
+        if (index != nil)
+          @specificHiddenTreasures.delete_at(index)
+        end
+      end
 		end
 
 		def adjust_to_fit_treasure_lists(v, h)

@@ -39,7 +39,17 @@ module Napakalaki
     end
 
     def next_turn
-
+      stateOK = next_turn_allowed
+      if (stateOK)
+        @currentMonster = @dealer.next_monster
+        @currentPlayer = next_player
+        dead = @currentPlayer.dead
+        
+        if (dead)
+          @currentPlayer.init_treasures
+        end
+      end
+      stateOK
     end
 
     def end_of_game(result)

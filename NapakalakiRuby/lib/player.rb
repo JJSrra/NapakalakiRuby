@@ -46,8 +46,25 @@ module Napakalaki
       @pendingBadConsequence.isEmpty and @hiddenTreasures.size <= 4;
     end
 
-    def initTreasures
-
+    def init_treasures
+      dealer = CardDealer.instance
+      dice = Dice.instance
+      bring_to_life
+      
+      treasure = dealer.next_treasure
+      @hiddenTreasures.push(treasure)
+      
+      number = dice.next_number
+      
+      if (number > 1)
+        treasure = dealer.next_treasure
+        @hiddenTreasures.push(treasure)
+      end
+      
+      if (number == 6)
+        treasure = dealer.next_treasure
+        @hiddenTreasure.push(treasure)
+      end
     end
 
     def steal_treasure
