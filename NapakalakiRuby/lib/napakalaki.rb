@@ -21,7 +21,7 @@ module Napakalaki
     end
 
     def develop_combat
-
+      @currentPlayer.combat(@currentMonster)
     end
 
     def discard_visible_treasures(treasures)

@@ -26,8 +26,25 @@ module Napakalaki
       @pendingBadConsequence = BadConsequence.newLevelNumberOfTreasures("", 0, 0, 0)
     end
 
-    def combat
-
+    def combat(m)
+      my_level = get_combat_level
+      monster_level = m.combat_level
+      combat_result
+      
+      if (my_level > monster_level)
+        apply_prize(m)
+        
+        if (@level >= MAXLEVEL)
+          combat_result = WINGAME
+        else
+          combat_result = WIN
+        end
+        
+      else
+        apply_bad_consequence(m)
+        combat_result = LOSE
+      end
+      combat_result
     end
 
     def make_treasure_visible
@@ -127,11 +144,28 @@ module Napakalaki
     end
 
     def apply_prize(m)
-
+      n_levels = get_levels_gained
+      
+      increment_levels(n_levels)
+      
+      n_treasures = get_treasures_gained
+      
+      if (n_treasures > 0)
+        dealer = CardDealer.instance
+        
+        for i in 1..n_treasures
+          treasure = dealer.next_treasure
+          @hiddenTreasures.push(treasure)
+        end
+      end
     end
 
     def apply_bad_consequence(m)
-
+      bad_consequence = m.bad_consequence
+      n_levels = m.levels
+      decrement_levels(n_levels)
+      pending_bad = bad_consequence.adjust_to_fit_treasure_lists(@visibleTreasures, @hiddenTreasures)
+      set_pending_bad_consequencee(pending_bad)
     end
 
     def can_make_treasure_visible(t)
