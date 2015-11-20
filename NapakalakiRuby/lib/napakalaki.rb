@@ -25,11 +25,17 @@ module Napakalaki
     end
 
     def discard_visible_treasures(treasures)
-
+			treasures.each { |treasure| 
+				@currentPlayer.discard_visible_treasure(treasure)
+				@dealer.give_treasure_back(treasure)
+			}
     end
 
     def discard_hidden_treasures(treasures)
-
+			treasures.each { |treasure| 
+				@currentPlayer.discard_hidden_treasure(treasure)
+				@dealer.give_treasure_back(treasure)
+			}
     end
 
     def make_treasures_visible(treasures)

@@ -34,12 +34,24 @@ module Napakalaki
 
     end
 
-    def discard_visible_treasure
-
+    def discard_visible_treasure(t)
+			@visibleTreasures.delete(t)
+			
+			if @pendingBadConsequence != nil and !@pendingBadConsequence.is_empty
+				@pendingBadConsequence.substract_visible_treasure(t)
+			end
+			
+			die_if_no_treasures
     end
 
-    def discard_hidden_treasure
-
+    def discard_hidden_treasure(treasure)
+			@hiddenTreasures.delete(t)
+			
+			if @pendingBadConsequence != nil and !@pendingBadConsequence.is_empty
+				@pendingBadConsequence.substract_hidden_treasure(t)
+			end
+			
+			die_if_no_treasures
     end
 
     def valid_state
