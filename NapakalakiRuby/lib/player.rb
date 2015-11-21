@@ -47,8 +47,13 @@ module Napakalaki
       combat_result
     end
 
-    def make_treasure_visible
-
+    def make_treasure_visible(t)
+      can_i = can_make_treasure_visible(t)
+      
+      if (can_i)
+        @visibleTreasures.push(t)
+        @hiddenTreasures.delete(t)
+      end
     end
 
     def discard_visible_treasure(t)
@@ -105,7 +110,13 @@ module Napakalaki
     end
 
     def discard_all_treasures
-
+      @visibleTreasures.each { |treasure|
+        discard_visible_treasure(treasure)
+      }
+      
+      @hiddenTreasures.each { |treasure|
+        discard_hidden_treasure(treasure)
+      }
     end
 
     private

@@ -39,7 +39,9 @@ module Napakalaki
     end
 
     def make_treasures_visible(treasures)
-
+      treasures.each { |t| 
+        @currentPlayer.make_treasure_visible(t)
+      }
     end
 
     def init_game(players)
