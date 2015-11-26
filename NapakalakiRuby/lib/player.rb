@@ -110,11 +110,14 @@ module Napakalaki
     end
 
     def discard_all_treasures
-      @visibleTreasures.each { |treasure|
+			visible = Array.new(@visibleTreasures);
+			hidden = Array.new(@hiddenTreasures);
+			
+      visible.each { |treasure|
         discard_visible_treasure(treasure)
       }
       
-      @hiddenTreasures.each { |treasure|
+      hidden.each { |treasure|
         discard_hidden_treasure(treasure)
       }
     end

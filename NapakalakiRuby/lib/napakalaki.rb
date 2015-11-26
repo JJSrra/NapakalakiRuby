@@ -89,7 +89,7 @@ module Napakalaki
     end
 
     def next_turn_allowed
-      @current_player.valid_state
+      @current_player == nil or @current_player.valid_state
     end
 
     def set_enemies
