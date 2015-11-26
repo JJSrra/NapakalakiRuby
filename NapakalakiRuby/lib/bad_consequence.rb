@@ -42,7 +42,7 @@ module Napakalaki
 
 		def self.newDeath(aText)
 			nuevo_bc = allocate
-			nuevo_bc.send(:initialize, aText, nil, nil, nil, Array.new, Array.new, true)
+			nuevo_bc.send(:initialize, aText, Player::MAXLEVELS, MAXTREASURES, MAXTREASURES, Array.new, Array.new, true)
 
 			nuevo_bc
 		end
