@@ -102,8 +102,25 @@ module Napakalaki
     end
 
     def steal_treasure
-
+			treasure = nil
+			can_i = can_i_steal
+			
+			if (can_i)
+				can_you = enemy.can_you_give_me_a_treasure
+				
+				if (can_you)
+					treasure = enemy.give_me_a_treasure
+					@hiddenTreasures.push(treasure)
+					have_stolen
+				end
+			end
+			
+			treasure
     end
+		
+		def can_i_steal
+			@canISteal
+		end
 
     def set_enemy(enemy)
       @enemy = enemy
