@@ -42,7 +42,7 @@ module Napakalaki
 
 		def self.newDeath(aText)
 			nuevo_bc = allocate
-			nuevo_bc.send(:initialize, aText, Player::MAXLEVELS, MAXTREASURES, MAXTREASURES, Array.new, Array.new, true)
+			nuevo_bc.send(:initialize, aText, Player::MAXLEVEL, MAXTREASURES, MAXTREASURES, Array.new, Array.new, true)
 
 			nuevo_bc
 		end
@@ -97,6 +97,7 @@ module Napakalaki
       bc
 		end
 
+    public
 		def to_s
 			"#{@text}\n\tNiveles: #{@levels}\n\tNumero tesoros visibles: #{@nVisible}\n\tNumero tesoros ocultos: #{@nHidden}\n\tTesoros visibles especificos: #{@specificVisibleTreasures}\n\tTesoros ocultos especificos: #{@specificHiddenTreasures}\n\tMuerte: #{@death}"
 		end

@@ -41,7 +41,7 @@ module Napakalaki
 
 			# Botas de lluvia ácida
 			botas_acido = Treasure.new("Botas de lluvia ácida", 1, TreasureKind::BOTHHANDS)
-			@unused_treasuers.push(botas_acido)
+			@unused_treasures.push(botas_acido)
 
 			# Casco minero
 			casco_minero = Treasure.new("Casco minero", 2, TreasureKind::HELMET)
@@ -57,7 +57,7 @@ module Napakalaki
 
 			# Clavo de rail ferroviario
 			clavo_rail = Treasure.new("Clavo de rail ferroviario", 3, TreasureKind::ONEHAND)
-			@unused_treasures.puhs(clavo_rail)
+			@unused_treasures.push(clavo_rail)
 
 			# Cuchillo de sushi arcano
 			cuchillo_sushi = Treasure.new("Cuchillo de sushi arcano", 2, TreasureKind::ONEHAND)
@@ -146,6 +146,8 @@ module Napakalaki
 			# Zapato deja-amigos
 			zapato_deja_amigos = Treasure.new("Zapato deja-amigos", 1, TreasureKind::SHOES)
 			@unused_treasures.push(zapato_deja_amigos)
+      
+      shuffle_treasures
 		end
 
 		def init_monster_card_deck
@@ -275,6 +277,8 @@ module Napakalaki
 			p_lenguas = Prize.new(1, 1)
 			lenguas = Monster.new("El lenguas", 20, bc_lenguas, p_lenguas)
 			@unused_monsters.push(lenguas)
+      
+      shuffle_monsters
 		end
 
 		def shuffle_treasures

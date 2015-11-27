@@ -79,10 +79,10 @@ module Napakalaki
     
     def next_player
       if (@current_player == nil) then
-        indice = 1 + rand(@players.size)
+        indice = rand(@players.size)
       else
         indice = @players.index(@current_player)
-        indice = indice + 1
+        indice = (indice + 1) % @players.size
       end
       
       @current_player = @players[indice]

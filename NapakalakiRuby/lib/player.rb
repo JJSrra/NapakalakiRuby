@@ -18,7 +18,7 @@ module Napakalaki
     def initialize(name)
       @name = name
       @level = 0
-      @dead = false
+      @dead = true
       @canISteal = true
       @visibleTreasures = Array.new
       @hiddenTreasures = Array.new
@@ -257,6 +257,11 @@ module Napakalaki
 
     def have_stolen
       @canISteal = false
+    end
+    
+    public
+    def to_s
+      "#{@name}, Nivel: #{@level}"
     end
   end
 end
