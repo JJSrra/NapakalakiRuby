@@ -75,7 +75,26 @@ module Napakalaki
 		end
 
 		def adjust_to_fit_treasure_lists(v, h)
-
+      bc
+      nVisible
+      nHidden
+      
+      if (@specificVisibleTreasures.empty? and @specificHiddenTreasures.empty?)
+        if (v.size < @nVisibleTreasures)
+          nVisible = v.size
+        end
+        if (h.size < @nHiddenTreasures)
+          nHidden = h.size
+        end
+        
+        bc = BadConsequence.newLevelNumberOfTreasures(@text, @levels, nVisible, nHidden)
+      else
+        bc = BadConsequence.newLevelSpecificTreasures(@text, @levels,
+             @specificVisibleTreasures & v,
+             @specificHiddenTreasures & h)
+      end
+      
+      bc
 		end
 
 		def to_s
