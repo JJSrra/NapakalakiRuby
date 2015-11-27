@@ -23,7 +23,7 @@ module Napakalaki
 		end
 
 		def to_s
-			"Nombre: #{@name}\nNivel: #{@level}\nMal rollo: #{@badConsequence}\nBuen rollo: #{@prize}"
+			"Nombre: #{@name}\nNivel: #{@combat_level}\nMal rollo: #{@badConsequence}\nBuen rollo: #{@prize}"
 		end
 	end
 end

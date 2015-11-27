@@ -8,6 +8,7 @@ require_relative "treasure.rb"
 require_relative "monster.rb"
 require_relative "treasure_kind.rb"
 require_relative "combat_result.rb"
+require_relative "dice.rb"
 
 module Napakalaki
   class Player
