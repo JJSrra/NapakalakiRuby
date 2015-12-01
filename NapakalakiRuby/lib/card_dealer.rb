@@ -309,7 +309,7 @@ module Napakalaki
       end
       
       siguiente = @unused_monsters.shift
-			used_monster.push(siguiente)
+			@used_monsters.push(siguiente)
 			
 			siguiente
 		end

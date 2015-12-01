@@ -10,7 +10,7 @@ module Napakalaki
 		def initialize(name, level, bad_consequence, prize)
 			@name = name
 			@combat_level = level
-			@bad_onsequence = bad_consequence
+			@bad_consequence = bad_consequence
 			@prize = prize
 		end
 
@@ -23,7 +23,7 @@ module Napakalaki
 		end
 
 		def to_s
-			"Nombre: #{@name}\nNivel: #{@combat_level}\nMal rollo: #{@badConsequence}\nBuen rollo: #{@prize}"
+			"Nombre: #{@name}\nNivel: #{@combat_level}\nMal rollo: #{@bad_consequence}\nBuen rollo: #{@prize}"
 		end
 	end
 end
