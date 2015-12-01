@@ -161,7 +161,7 @@ module Napakalaki
 			# 3 Byakhees de bonanza
 			p_byakhees = Prize.new(2, 1)
 			bc_byakhees = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible y otra oculta.", 
-				0, TreasureKind::ARMOR, TreasureKind::ARMOR)
+				0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])
 			byakhees = Monster.new("3 Byakhees de bonanza", 8, bc_byakhees, p_byakhees)
 			@unused_monsters.push(byakhees)
 
@@ -173,21 +173,21 @@ module Napakalaki
 
 			# Chibithulhu
 			bc_chibi = BadConsequence.newLevelSpecificTreasures("Embobados con el lindo primigenio te descartas de tu casco visible.",
-				0, TreasureKind::HELMET, [])
+				0, [TreasureKind::HELMET], [])
 			p_chibi = Prize.new(1, 1)
 			chibi = Monster.new("Chibithulhu", 2, bc_chibi, p_chibi)
 			@unused_monsters.push(chibi)
 
 			# El sopor de Dunwich
 			bc_dunwich = BadConsequence.newLevelSpecificTreasures("El primordial bostezo contagioso. Pierdes tu calzado visible.", 
-				0, TreasureKind::SHOES, [])
+				0, [TreasureKind::SHOES], [])
 			p_dunwich = Prize.new(1, 1)
 			dunwich = Monster.new("El sopor de Dunwich", 2, bc_dunwich, p_dunwich)
 			@unused_monsters.push(dunwich)
 
 			# Ángeles de la noche ibicenca
 			bc_angeles = BadConsequence.newLevelSpecificTreasures("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Pierdes una mano visible y otra oculta", 
-				0, TreasureKind::ONEHAND, TreasureKind::ONEHAND)
+				0, [TreasureKind::ONEHAND], [TreasureKind::ONEHAND])
 			p_angeles = Prize.new(4, 1)
 			angeles = Monster.new("Angeles de la noche ibicenca", 14, bc_angeles, p_angeles)
 			@unused_monsters.push(angeles)
@@ -201,14 +201,14 @@ module Napakalaki
 
 			# H.P. Munchcraft
 			bc_munchcraft = BadConsequence.newLevelSpecificTreasures("Pierdes la armadura visible", 
-				0, TreasureKind::ARMOR, [])
+				0, [TreasureKind::ARMOR], [])
 			p_munchcraft = Prize.new(2, 1)
 			munchcraft = Monster.new("H.P. Munchcraft", 6, bc_munchcraft, p_munchcraft)
 			@unused_monsters.push(munchcraft)
 
 			# Bichgooth
 			bc_bichgooth = BadConsequence.newLevelSpecificTreasures("Sientes bichos bajo la ropa. Descarta la armadura visible.", 
-				0, TreasureKind::ARMOR, [])
+				0, [TreasureKind::ARMOR], [])
 			p_bichgooth = Prize.new(1, 1)
 			bichgooth = Monster.new("Bichgooth", 2, bc_bichgooth, p_bichgooth)
 			@unused_monsters.push(bichgooth)

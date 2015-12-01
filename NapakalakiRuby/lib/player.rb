@@ -31,19 +31,20 @@ module Napakalaki
 			combat_result = nil
       my_level = get_combat_level
       monster_level = m.combat_level
+      combat_result = nil
       
       if (my_level > monster_level)
         apply_prize(m)
         
         if (@level >= MAXLEVEL)
-          combat_result = WINGAME
+          combat_result = CombatResult::WINGAME
         else
-          combat_result = WIN
+          combat_result = CombatResult::WIN
         end
         
       else
         apply_bad_consequence(m)
-        combat_result = LOSE
+        combat_result = CombatResult::LOSE
       end
       combat_result
     end
@@ -67,7 +68,7 @@ module Napakalaki
 			die_if_no_treasures
     end
 
-    def discard_hidden_treasure(treasure)
+    def discard_hidden_treasure(t)
 			@hiddenTreasures.delete(t)
 			
 			if @pendingBadConsequence != nil and !@pendingBadConsequence.is_empty
@@ -78,7 +79,7 @@ module Napakalaki
     end
 
     def valid_state
-      @pendingBadConsequence.isEmpty and @hiddenTreasures.size <= 4;
+      @pendingBadConsequence.is_empty and @hiddenTreasures.size <= 4;
     end
 
     def init_treasures
@@ -107,10 +108,10 @@ module Napakalaki
 			can_i = can_i_steal
 			
 			if (can_i)
-				can_you = enemy.can_you_give_me_a_treasure
+				can_you = @enemy.can_you_give_me_a_treasure
 				
 				if (can_you)
-					treasure = enemy.give_me_a_treasure
+					treasure = @enemy.give_me_a_treasure
 					@hiddenTreasures.push(treasure)
 					have_stolen
 				end
@@ -177,11 +178,11 @@ module Napakalaki
     end
 
     def apply_prize(m)
-      n_levels = get_levels_gained
+      n_levels = m.get_levels_gained
       
       increment_levels(n_levels)
       
-      n_treasures = get_treasures_gained
+      n_treasures = m.get_treasures_gained
       
       if (n_treasures > 0)
         dealer = CardDealer.instance
@@ -198,7 +199,7 @@ module Napakalaki
       n_levels = m.combat_level
       decrement_levels(n_levels)
       pending_bad = bad_consequence.adjust_to_fit_treasure_lists(@visibleTreasures, @hiddenTreasures)
-      set_pending_bad_consequencee(pending_bad)
+      set_pending_bad_consequence(pending_bad)
     end
 
     def can_make_treasure_visible(t)
