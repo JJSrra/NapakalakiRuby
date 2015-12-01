@@ -98,7 +98,7 @@ module Napakalaki
       
       if (number == 6)
         treasure = dealer.next_treasure
-        @hiddenTreasure.push(treasure)
+        @hiddenTreasures.push(treasure)
       end
     end
 
