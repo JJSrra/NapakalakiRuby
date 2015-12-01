@@ -27,7 +27,7 @@ module Napakalaki
 			nuevo_bc = allocate
 
 			# Inicializa el objeto
-			nuevo_bc.send(:initialize, aText, someLevels, someVisibleTreasures, someHiddenTreasures, [], [], false)
+			nuevo_bc.send(:initialize, aText, someLevels, someVisibleTreasures, someHiddenTreasures, Array.new, Array.new, false)
 
 			# Return
 			nuevo_bc
@@ -75,9 +75,9 @@ module Napakalaki
 		end
 
 		def adjust_to_fit_treasure_lists(v, h)
-      bc
-      nVisible
-      nHidden
+      bc = nil
+      nVisible = nil
+      nHidden = nil
       
       if (@specificVisibleTreasures.empty? and @specificHiddenTreasures.empty?)
         if (v.size < @nVisibleTreasures)
@@ -92,12 +92,12 @@ module Napakalaki
 				auxV = Array.new
 				auxH = Array.new
 				
-				v.each { |tesoro| 
-					auxV.push(tesoro.type)
+				v.each { |treasure| 
+					auxV.push(treasure.type)
 				}
 				
-				h.each { |tesoro| 
-					auxH.push(tesoro.type)
+				h.each { |treasure| 
+					auxH.push(treasure.type)
 				}
 				
         bc = BadConsequence.newLevelSpecificTreasures(@text, @levels,
