@@ -142,7 +142,8 @@ module Napakalaki
 
     private
     def bring_to_life
-      @dead = true
+      @dead = false
+			@level = 1
     end
 
     def get_combat_level
@@ -166,8 +167,8 @@ module Napakalaki
     def decrement_levels(l)
       @level -= l
 
-      if @level < 0 then
-        @level = 0
+      if @level < 1 then
+        @level = 1
       end
     end
 
