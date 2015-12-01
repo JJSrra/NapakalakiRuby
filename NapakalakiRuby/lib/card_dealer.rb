@@ -308,7 +308,10 @@ module Napakalaki
         shuffle_treasures
       end
       
-      @unused_monsters.shift
+      siguiente = @unused_monsters.shift
+			used_monster.push(siguiente)
+			
+			siguiente
 		end
 
 		def give_treasure_back(t)

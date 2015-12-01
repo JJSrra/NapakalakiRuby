@@ -89,9 +89,20 @@ module Napakalaki
         
         bc = BadConsequence.newLevelNumberOfTreasures(@text, @levels, nVisible, nHidden)
       else
+				auxV = Array.new
+				auxH = Array.new
+				
+				v.each { |tesoro| 
+					auxV.push(tesoro.type)
+				}
+				
+				h.each { |tesoro| 
+					auxH.push(tesoro.type)
+				}
+				
         bc = BadConsequence.newLevelSpecificTreasures(@text, @levels,
-             @specificVisibleTreasures & v,
-             @specificHiddenTreasures & h)
+             @specificVisibleTreasures & auxV,
+             @specificHiddenTreasures & auxH)
       end
       
       bc
