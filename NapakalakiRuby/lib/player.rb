@@ -28,9 +28,9 @@ module Napakalaki
     end
 
     def combat(m)
+			combat_result = nil
       my_level = get_combat_level
       monster_level = m.combat_level
-      combat_result
       
       if (my_level > monster_level)
         apply_prize(m)
@@ -195,7 +195,7 @@ module Napakalaki
 
     def apply_bad_consequence(m)
       bad_consequence = m.bad_consequence
-      n_levels = m.levels
+      n_levels = m.combat_level
       decrement_levels(n_levels)
       pending_bad = bad_consequence.adjust_to_fit_treasure_lists(@visibleTreasures, @hiddenTreasures)
       set_pending_bad_consequencee(pending_bad)
