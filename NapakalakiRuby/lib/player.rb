@@ -83,8 +83,6 @@ module Napakalaki
     end
 
     def valid_state
-			puts "DEBUG!!1!" #######################################################################################################
-			puts @pendingBadConsequence
       @pendingBadConsequence.is_empty and @hiddenTreasures.size <= 4;
     end
 

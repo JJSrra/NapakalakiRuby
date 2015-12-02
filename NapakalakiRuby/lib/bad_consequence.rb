@@ -96,16 +96,24 @@ module Napakalaki
 				# Si hay tesoros específicos, bc debe llevar la intersección
 				auxV = Array.new
 				auxH = Array.new
+				specificV = Array(@specificVisibleTreasures)
+				specificH = Array(@specificHiddenTreasures)
 				
 				v.each { |treasure| 
-					if @specificVisibleTreasures.find_index(treasure.type) != nil
+					index = specificV.find_index(treasure.type)
+					
+					if index != nil
 						auxV.push(treasure.type)
+						specificV.delete_at(index)
 					end
 				}
 				
 				h.each { |treasure| 
-					if @specificHiddenTreasures.find_index(treasure.type) != nil
+					index = specificH.find_index(treasure.type)
+					
+					if index != nil
 						auxH.push(treasure.type)
+						specificH.delete_at(index)
 					end
 				}
 				
