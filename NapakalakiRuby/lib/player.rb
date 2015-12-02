@@ -148,7 +148,7 @@ module Napakalaki
     private
     def bring_to_life
       @dead = false
-			@level = 1
+			@level = 9
     end
 
     def get_combat_level
@@ -200,7 +200,7 @@ module Napakalaki
 
     def apply_bad_consequence(m)
       bad_consequence = m.bad_consequence
-      n_levels = m.combat_level
+      n_levels = bad_consequence.levels
       decrement_levels(n_levels)
       pending_bad = bad_consequence.adjust_to_fit_treasure_lists(@visibleTreasures, @hiddenTreasures)
       set_pending_bad_consequence(pending_bad)

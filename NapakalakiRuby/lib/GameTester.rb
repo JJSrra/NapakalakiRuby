@@ -42,7 +42,7 @@ class GameTester
           combatResult = @game.develop_combat()
           case combatResult
             when Napakalaki::CombatResult::WINGAME then 
-              puts "\n\n       " + currentPlayer.get_name()
+              puts "\n\n       " + currentPlayer.name
               puts "\n\n HAS GANADO LA PARTIDA"
               #break está implícito            
             when Napakalaki::CombatResult::WIN then
