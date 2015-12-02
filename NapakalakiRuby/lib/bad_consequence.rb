@@ -93,20 +93,23 @@ module Napakalaki
         
         bc = BadConsequence.newLevelNumberOfTreasures(@text, @levels, nVisible, nHidden)
       else
+				# Si hay tesoros específicos, bc debe llevar la intersección
 				auxV = Array.new
 				auxH = Array.new
 				
 				v.each { |treasure| 
-					auxV.push(treasure.type)
+					if @specificVisibleTreasures.find_index(treasure.type) != nil
+						auxV.push(treasure.type)
+					end
 				}
 				
 				h.each { |treasure| 
-					auxH.push(treasure.type)
+					if @specificHiddenTreasures.find_index(treasure.type) != nil
+						auxH.push(treasure.type)
+					end
 				}
 				
-        bc = BadConsequence.newLevelSpecificTreasures(@text, @levels,
-             @specificVisibleTreasures & auxV,
-             @specificHiddenTreasures & auxH)
+        bc = BadConsequence.newLevelSpecificTreasures(@text, @levels, auxV, auxH)
       end
       
       bc
