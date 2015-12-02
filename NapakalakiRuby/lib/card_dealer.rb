@@ -24,11 +24,11 @@ module Napakalaki
 
 		def init_treasure_card_deck
 			# Sí mi amo
-			si_mi_amo = Treasure.new("¡Sí mi amo!", 4, TreasureKind::HELMET)
+			si_mi_amo = Treasure.new("Si mi amo!", 4, TreasureKind::HELMET)
 			@unused_treasures.push(si_mi_amo)
 
 			# Botas de investigación
-			botas_investigacion = Treasure.new("Botas de investigación", 3, TreasureKind::SHOES)
+			botas_investigacion = Treasure.new("Botas de investigacion", 3, TreasureKind::SHOES)
 			@unused_treasures.push(botas_investigacion)
 
 			# Capucha de Cthulhu
@@ -40,7 +40,7 @@ module Napakalaki
 			@unused_treasures.push(prueba_babas)
 
 			# Botas de lluvia ácida
-			botas_acido = Treasure.new("Botas de lluvia ácida", 1, TreasureKind::BOTHHANDS)
+			botas_acido = Treasure.new("Botas de lluvia acida", 1, TreasureKind::BOTHHANDS)
 			@unused_treasures.push(botas_acido)
 
 			# Casco minero
@@ -48,7 +48,7 @@ module Napakalaki
 			@unused_treasures.push(casco_minero)
 
 			# Ametralladora Thompson
-			thompson = Treasure.new("Ametralladora thompson", 4, TreasureKind::BOTHHANDS)
+			thompson = Treasure.new("Ametralladora Thompson", 4, TreasureKind::BOTHHANDS)
 			@unused_treasures.push(thompson)
 
 			#Camiseta de la UGR
@@ -100,11 +100,11 @@ module Napakalaki
 			@unused_treasures.push(lanzallamas)
 
 			# Necrocomicón
-			necrocomicon = Treasure.new("Necrocomicón", 1, TreasureKind::ONEHAND)
+			necrocomicon = Treasure.new("Necrocomicon", 1, TreasureKind::ONEHAND)
 			@unused_treasures.push(necrocomicon)
 
 			# Necronomicón
-			necronomicon = Treasure.new("Necronomicón", 5, TreasureKind::BOTHHANDS)
+			necronomicon = Treasure.new("Necronomicon", 5, TreasureKind::BOTHHANDS)
 			@unused_treasures.push(necronomicon)
 
 			# Linterna dos manos
@@ -112,7 +112,7 @@ module Napakalaki
 			@unused_treasures.push(linterna_dos_manos)
 
 			# Necrognomicón
-			necrognomicon = Treasure.new("Necrognomicón", 2, TreasureKind::ONEHAND)
+			necrognomicon = Treasure.new("Necrognomicon", 2, TreasureKind::ONEHAND)
 			@unused_treasures.push(necrognomicon)
 
 			# Necrotelecom
@@ -186,7 +186,7 @@ module Napakalaki
 			@unused_monsters.push(dunwich)
 
 			# Ángeles de la noche ibicenca
-			bc_angeles = BadConsequence.newLevelSpecificTreasures("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Pierdes una mano visible y otra oculta", 
+			bc_angeles = BadConsequence.newLevelSpecificTreasures("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Pierdes una mano visible y otra oculta.", 
 				0, [TreasureKind::ONEHAND], [TreasureKind::ONEHAND])
 			p_angeles = Prize.new(4, 1)
 			angeles = Monster.new("Angeles de la noche ibicenca", 14, bc_angeles, p_angeles)
@@ -200,7 +200,7 @@ module Napakalaki
 			@unused_monsters.push(gorron)
 
 			# H.P. Munchcraft
-			bc_munchcraft = BadConsequence.newLevelSpecificTreasures("Pierdes la armadura visible", 
+			bc_munchcraft = BadConsequence.newLevelSpecificTreasures("Pierdes la armadura visible.", 
 				0, [TreasureKind::ARMOR], [])
 			p_munchcraft = Prize.new(2, 1)
 			munchcraft = Monster.new("H.P. Munchcraft", 6, bc_munchcraft, p_munchcraft)
