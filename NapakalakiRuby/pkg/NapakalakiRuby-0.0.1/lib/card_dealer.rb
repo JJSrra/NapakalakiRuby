@@ -41,7 +41,7 @@ module Napakalaki
 
 			# Botas de lluvia ácida
 			botas_acido = Treasure.new("Botas de lluvia ácida", 1, TreasureKind::BOTHHANDS)
-			@unused_treasures.push(botas_acido)
+			@unused_treasuers.push(botas_acido)
 
 			# Casco minero
 			casco_minero = Treasure.new("Casco minero", 2, TreasureKind::HELMET)
@@ -57,7 +57,7 @@ module Napakalaki
 
 			# Clavo de rail ferroviario
 			clavo_rail = Treasure.new("Clavo de rail ferroviario", 3, TreasureKind::ONEHAND)
-			@unused_treasures.push(clavo_rail)
+			@unused_treasures.puhs(clavo_rail)
 
 			# Cuchillo de sushi arcano
 			cuchillo_sushi = Treasure.new("Cuchillo de sushi arcano", 2, TreasureKind::ONEHAND)
@@ -146,8 +146,6 @@ module Napakalaki
 			# Zapato deja-amigos
 			zapato_deja_amigos = Treasure.new("Zapato deja-amigos", 1, TreasureKind::SHOES)
 			@unused_treasures.push(zapato_deja_amigos)
-      
-      shuffle_treasures
 		end
 
 		def init_monster_card_deck
@@ -161,7 +159,7 @@ module Napakalaki
 			# 3 Byakhees de bonanza
 			p_byakhees = Prize.new(2, 1)
 			bc_byakhees = BadConsequence.newLevelSpecificTreasures("Pierdes tu armadura visible y otra oculta.", 
-				0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])
+				0, TreasureKind::ARMOR, TreasureKind::ARMOR)
 			byakhees = Monster.new("3 Byakhees de bonanza", 8, bc_byakhees, p_byakhees)
 			@unused_monsters.push(byakhees)
 
@@ -173,42 +171,42 @@ module Napakalaki
 
 			# Chibithulhu
 			bc_chibi = BadConsequence.newLevelSpecificTreasures("Embobados con el lindo primigenio te descartas de tu casco visible.",
-				0, [TreasureKind::HELMET], [])
+				0, TreasureKind::HELMET, [])
 			p_chibi = Prize.new(1, 1)
 			chibi = Monster.new("Chibithulhu", 2, bc_chibi, p_chibi)
 			@unused_monsters.push(chibi)
 
 			# El sopor de Dunwich
 			bc_dunwich = BadConsequence.newLevelSpecificTreasures("El primordial bostezo contagioso. Pierdes tu calzado visible.", 
-				0, [TreasureKind::SHOES], [])
+				0, TreasureKind::SHOES, [])
 			p_dunwich = Prize.new(1, 1)
 			dunwich = Monster.new("El sopor de Dunwich", 2, bc_dunwich, p_dunwich)
 			@unused_monsters.push(dunwich)
 
 			# Ángeles de la noche ibicenca
 			bc_angeles = BadConsequence.newLevelSpecificTreasures("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo. Pierdes una mano visible y otra oculta", 
-				0, [TreasureKind::ONEHAND], [TreasureKind::ONEHAND])
+				0, TreasureKind::ONEHAND, TreasureKind::ONEHAND)
 			p_angeles = Prize.new(4, 1)
 			angeles = Monster.new("Angeles de la noche ibicenca", 14, bc_angeles, p_angeles)
 			@unused_monsters.push(angeles)
 
 			# El gorrón en el umbral
 			bc_gorron = BadConsequence.newLevelNumberOfTreasures("Pierdes todos tus tesoros visibles.", 
-				0, BadConsequence.MAXTREASURES, 0)
+				0, BadConsequence::MAXTREASURES, 0)
 			p_gorron = Prize.new(3, 1)
 			gorron = Monster.new("El gorron en el umbral", 10, bc_gorron, p_gorron)
 			@unused_monsters.push(gorron)
 
 			# H.P. Munchcraft
 			bc_munchcraft = BadConsequence.newLevelSpecificTreasures("Pierdes la armadura visible", 
-				0, [TreasureKind::ARMOR], [])
+				0, TreasureKind::ARMOR, [])
 			p_munchcraft = Prize.new(2, 1)
 			munchcraft = Monster.new("H.P. Munchcraft", 6, bc_munchcraft, p_munchcraft)
 			@unused_monsters.push(munchcraft)
 
 			# Bichgooth
 			bc_bichgooth = BadConsequence.newLevelSpecificTreasures("Sientes bichos bajo la ropa. Descarta la armadura visible.", 
-				0, [TreasureKind::ARMOR], [])
+				0, TreasureKind::ARMOR, [])
 			p_bichgooth = Prize.new(1, 1)
 			bichgooth = Monster.new("Bichgooth", 2, bc_bichgooth, p_bichgooth)
 			@unused_monsters.push(bichgooth)
@@ -277,8 +275,6 @@ module Napakalaki
 			p_lenguas = Prize.new(1, 1)
 			lenguas = Monster.new("El lenguas", 20, bc_lenguas, p_lenguas)
 			@unused_monsters.push(lenguas)
-      
-      shuffle_monsters
 		end
 
 		def shuffle_treasures
@@ -308,10 +304,7 @@ module Napakalaki
         shuffle_treasures
       end
       
-      siguiente = @unused_monsters.shift
-			@used_monsters.push(siguiente)
-			
-			siguiente
+      @unused_monsters.shift
 		end
 
 		def give_treasure_back(t)

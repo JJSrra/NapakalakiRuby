@@ -14,7 +14,7 @@ module Napakalaki
   class Player
     attr_reader :name, :dead, :hiddenTreasures, :visibleTreasures, :level
 
-    MAXLEVEL = 10
+    @@MAXLEVEL = 10
 
     def initialize(name)
       @name = name
@@ -26,6 +26,10 @@ module Napakalaki
       @enemy = nil
       @pendingBadConsequence = BadConsequence.newLevelNumberOfTreasures("", 0, 0, 0)
     end
+		
+		def self.MAXLEVEL
+			@@MAXLEVEL
+		end
 
     def combat(m)
 			combat_result = nil
@@ -36,7 +40,7 @@ module Napakalaki
       if (my_level > monster_level)
         apply_prize(m)
         
-        if (@level >= MAXLEVEL)
+        if (@level >= @@MAXLEVEL)
           combat_result = CombatResult::WINGAME
         else
           combat_result = CombatResult::WIN
@@ -79,6 +83,8 @@ module Napakalaki
     end
 
     def valid_state
+			puts "DEBUG!!1!" #######################################################################################################
+			puts @pendingBadConsequence
       @pendingBadConsequence.is_empty and @hiddenTreasures.size <= 4;
     end
 

@@ -7,7 +7,7 @@ module Napakalaki
 	class BadConsequence
 		attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificVisibleTreasures, :specificHiddenTreasures
 
-		@@MAXTREASURES = 10
+		MAXTREASURES = 10
 
 		def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,
 					someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
@@ -21,17 +21,13 @@ module Napakalaki
 			@specificVisibleTreasures = someSpecificVisibleTreasures
 		end
 		private_class_method :new
-		
-		def self.MAXTREASURES
-			@@MAXTREASURES
-		end
 
 		def self.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
 			# Asigna memoria para el objeto
 			nuevo_bc = allocate
 
 			# Inicializa el objeto
-			nuevo_bc.send(:initialize, aText, someLevels, someVisibleTreasures, someHiddenTreasures, Array.new, Array.new, false)
+			nuevo_bc.send(:initialize, aText, someLevels, someVisibleTreasures, someHiddenTreasures, [], [], false)
 
 			# Return
 			nuevo_bc
@@ -39,14 +35,14 @@ module Napakalaki
 
 		def self.newLevelSpecificTreasures(aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
 			nuevo_bc = allocate
-			nuevo_bc.send(:initialize, aText, someLevels, 0, 0, someSpecificVisibleTreasures, someSpecificHiddenTreasures, false)
+			nuevo_bc.send(:initialize, aText, someLevels, nil, nil, someSpecificVisibleTreasures, someSpecificHiddenTreasures, false)
 
 			nuevo_bc
 		end
 
 		def self.newDeath(aText)
 			nuevo_bc = allocate
-			nuevo_bc.send(:initialize, aText, Player.MAXLEVEL, @@MAXTREASURES, @@MAXTREASURES, Array.new, Array.new, true)
+			nuevo_bc.send(:initialize, aText, Player::MAXLEVELS, MAXTREASURES, MAXTREASURES, Array.new, Array.new, true)
 
 			nuevo_bc
 		end
@@ -79,42 +75,11 @@ module Napakalaki
 		end
 
 		def adjust_to_fit_treasure_lists(v, h)
-      bc = nil
-      nVisible = 0
-      nHidden = 0
-      
-      if (@specificVisibleTreasures.empty? and @specificHiddenTreasures.empty?)
-        if (v.size < @nVisibleTreasures)
-          nVisible = v.size
-        end
-        if (h.size < @nHiddenTreasures)
-          nHidden = h.size
-        end
-        
-        bc = BadConsequence.newLevelNumberOfTreasures(@text, @levels, nVisible, nHidden)
-      else
-				auxV = Array.new
-				auxH = Array.new
-				
-				v.each { |treasure| 
-					auxV.push(treasure.type)
-				}
-				
-				h.each { |treasure| 
-					auxH.push(treasure.type)
-				}
-				
-        bc = BadConsequence.newLevelSpecificTreasures(@text, @levels,
-             @specificVisibleTreasures & auxV,
-             @specificHiddenTreasures & auxH)
-      end
-      
-      bc
+
 		end
 
-    public
 		def to_s
-			"#{@text}\n\tNiveles: #{@levels}\n\tNumero tesoros visibles: #{@nVisibleTreasures}\n\tNumero tesoros ocultos: #{@nHiddenTreasures}\n\tTesoros visibles especificos: #{@specificVisibleTreasures}\n\tTesoros ocultos especificos: #{@specificHiddenTreasures}\n\tMuerte: #{@death}"
+			"#{@text}\n\tNiveles: #{@levels}\n\tNumero tesoros visibles: #{@nVisible}\n\tNumero tesoros ocultos: #{@nHidden}\n\tTesoros visibles especificos: #{@specificVisibleTreasures}\n\tTesoros ocultos especificos: #{@specificHiddenTreasures}\n\tMuerte: #{@death}"
 		end
 	end
 end
