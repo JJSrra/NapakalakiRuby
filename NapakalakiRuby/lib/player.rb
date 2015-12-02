@@ -112,10 +112,10 @@ module Napakalaki
 			can_i = can_i_steal
 			
 			if (can_i)
-				can_you = @enemy.can_you_give_me_a_treasure
+				can_you = @enemy.send(:can_you_give_me_a_treasure)
 				
 				if (can_you)
-					treasure = @enemy.give_me_a_treasure
+					treasure = @enemy.send(:give_me_a_treasure)
 					@hiddenTreasures.push(treasure)
 					have_stolen
 				end
@@ -255,7 +255,7 @@ module Napakalaki
     end
 
     def give_me_a_treasure
-			return @hiddenTreasures.at(random(@hiddenTreasures.size))
+			return @hiddenTreasures.at(rand(@hiddenTreasures.size))
     end
 
     def can_you_give_me_a_treasure
