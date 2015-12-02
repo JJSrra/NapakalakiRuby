@@ -148,7 +148,7 @@ module Napakalaki
     private
     def bring_to_life
       @dead = false
-			@level = 9
+			@level = 1
     end
 
     def get_combat_level
