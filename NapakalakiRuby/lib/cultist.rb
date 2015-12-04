@@ -3,10 +3,12 @@
 # and open the template in the editor.
 
 module Napakalaki
-  module CombatResult
-      WINGAME = :wingame
-      WIN = :win
-      LOSE = :lose
-      LOSEANDCONVERT = :loseandconvert
+  class Cultist
+    attr_reader :name, :gained_levels
+    
+    def initialize(name, gained_levels)
+      @name = name
+      @gained_levels = gained_levels
+    end
   end
 end

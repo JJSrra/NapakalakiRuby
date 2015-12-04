@@ -160,7 +160,19 @@ module Napakalaki
 
       l
     end
-
+    protected :get_combat_level
+    
+    def get_oponent_level(m)
+      m.combat_level
+    end
+    protected :get_oponent_level
+    
+    def should_convert
+      dice = Dice.instance
+      dice.next_number == 1
+    end
+    protected :should_convert
+    
     def increment_levels(l)
       @level += l
 
