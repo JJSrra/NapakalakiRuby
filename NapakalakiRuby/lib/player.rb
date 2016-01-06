@@ -91,7 +91,7 @@ module Napakalaki
     end
 
     def valid_state
-      @pendingBadConsequence.is_empty and @hiddenTreasures.size <= 4;
+      @pendingBadConsequence == nil or (@pendingBadConsequence.is_empty and @hiddenTreasures.size <= 4);
     end
 
     def init_treasures
