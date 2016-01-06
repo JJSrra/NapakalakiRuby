@@ -30,6 +30,11 @@ module Napakalaki
 		def self.MAXLEVEL
 			@@MAXLEVEL
 		end
+    
+    def get_enemy
+      @enemy
+    end
+    protected :get_enemy
 
     def combat(m)
 			combat_result = nil
@@ -267,7 +272,7 @@ module Napakalaki
     end
 
     def give_me_a_treasure
-			return @hiddenTreasures.at(rand(@hiddenTreasures.size))
+			@hiddenTreasures.at(rand(@hiddenTreasures.size))
     end
 
     def can_you_give_me_a_treasure

@@ -41,7 +41,7 @@ module Napakalaki
 			@prize.treasures
 		end
     
-    def get_combat_level_against_cultist_player()
+    def get_combat_level_against_cultist_player
       @combat_level + @level_change_against_cultist_player
     end
     
