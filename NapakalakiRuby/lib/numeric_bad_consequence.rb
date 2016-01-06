@@ -37,7 +37,7 @@ module Napakalaki
       if (h.size < @nHiddenTreasures)
         nHidden = h.size
       else
-        nHidden = @nHiddenTreasure
+        nHidden = @nHiddenTreasures
       end
       
       bc = NumericBadConsequence.new(@text, @levels, nVisible, nHidden)
