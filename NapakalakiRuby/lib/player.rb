@@ -3,7 +3,10 @@
 # and open the template in the editor.
 
 require_relative "prize.rb"
-require_relative "bad_consequence"
+require_relative "bad_consequence.rb"
+require_relative 'numeric_bad_consequence.rb'
+require_relative 'death_bad_consequence.rb'
+require_relative 'specific_bad_consequence.rb'
 require_relative "treasure.rb"
 require_relative "monster.rb"
 require_relative "treasure_kind.rb"

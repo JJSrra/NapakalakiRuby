@@ -9,6 +9,10 @@ require_relative 'treasure.rb'
 require_relative 'monster.rb'
 require_relative 'treasure_kind.rb'
 require_relative 'bad_consequence.rb'
+require_relative 'numeric_bad_consequence.rb'
+require_relative 'death_bad_consequence.rb'
+require_relative 'specific_bad_consequence.rb'
+require_relative 'cultist.rb'
 
 module Napakalaki
 	class CardDealer
@@ -268,7 +272,7 @@ module Napakalaki
 			@unused_monsters.push(roboggoth)
 
 			# El espia
-			bc_espia = SpecificadConsequence.new("Te asusta en la noche. Pierdes un casco visible.", 0, [TreasureKind::HELMET], [])
+			bc_espia = SpecificBadConsequence.new("Te asusta en la noche. Pierdes un casco visible.", 0, [TreasureKind::HELMET], [])
 			p_espia = Prize.new(1, 1)
 			espia = Monster.new_normal_monster("El espia", 5, bc_espia, p_espia)
 			@unused_monsters.push(espia)
@@ -328,12 +332,12 @@ module Napakalaki
 		end
     
     def init_cultist_card_deck
-      @unused_cultists.push(new Cultist("Sectario", 1))
-      @unused_cultists.push(new Cultist("Sectario", 2))
-      @unused_cultists.push(new Cultist("Sectario", 1))
-      @unused_cultists.push(new Cultist("Sectario", 2))
-      @unused_cultists.push(new Cultist("Sectario", 1))
-      @unused_cultists.push(new Cultist("Sectario", 1))
+      @unused_cultists.push(Cultist.new("Sectario", 1))
+      @unused_cultists.push(Cultist.new("Sectario", 2))
+      @unused_cultists.push(Cultist.new("Sectario", 1))
+      @unused_cultists.push(Cultist.new("Sectario", 2))
+      @unused_cultists.push(Cultist.new("Sectario", 1))
+      @unused_cultists.push(Cultist.new("Sectario", 1))
       
       shuffle_cultists
     end

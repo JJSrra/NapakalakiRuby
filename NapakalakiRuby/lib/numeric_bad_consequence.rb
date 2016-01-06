@@ -20,7 +20,7 @@ module Napakalaki
     end
     
     def substract_hidden_treasure(t)
-      @nHiddenTreasure -= 1
+      @nHiddenTreasures -= 1
     end
     
     def adjust_to_fit_treasure_lists(v,h)

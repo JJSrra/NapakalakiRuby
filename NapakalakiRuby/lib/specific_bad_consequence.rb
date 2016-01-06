@@ -56,7 +56,7 @@ module Napakalaki
         end
       }
       
-      bc = BadConsequence.newLevelSpecificTreasures(@text, @levels, auxV, auxH)
+      bc = SpecificBadConsequence.new(@text, @levels, auxV, auxH)
       
       bc
     end

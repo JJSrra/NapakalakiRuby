@@ -7,6 +7,10 @@ module Napakalaki
     attr_reader :text, :levels
     
     @@MAXTREASURES = 10
+		
+		def self.MAXTREASURES
+			@@MAXTREASURES
+		end
     
     def is_empty
       raise NotImplementedError.new
