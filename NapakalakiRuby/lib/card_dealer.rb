@@ -243,68 +243,68 @@ module Napakalaki
 			@unused_monsters.push(dameargo)
 
 			# Pollipólipo volante
-			bc_pollipolipo = BadConsequence.newLevelNumberOfTreasures("Da mucho asquito. Pierdes 3 niveles.", 3, 0, 0)
+			bc_pollipolipo = NumericBadConsequence.new("Da mucho asquito. Pierdes 3 niveles.", 3, 0, 0)
 			p_pollipolipo = Prize.new(1, 1)
 			pollipolipo = Monster.new_normal_monster("Pollipolipo volante", 3, bc_pollipolipo, p_pollipolipo)
 			@unused_monsters.push(pollipolipo)
 
 			# Yskhtihyssggoth
-			bc_impronunciable = BadConsequence.newDeath("No le hace gracia que pronuncien mal su nombre. Estas muerto.")
+			bc_impronunciable = DeathBadConsequence.new("No le hace gracia que pronuncien mal su nombre. Estas muerto.")
 			p_impronunciable = Prize.new(3, 1)
 			impronunciable = Monster.new_normal_monster("Yskhtihyssggoth", 12, bc_impronunciable, p_impronunciable)
 			@unused_monsters.push(impronunciable)
 
 			# Familia felíz
-			bc_familia = BadConsequence.newDeath("La familia te atrapa. Estas muerto.")
+			bc_familia = DeathBadConsequence.new("La familia te atrapa. Estas muerto.")
 			p_familia = Prize.new(4, 1)
 			familia = Monster.new_normal_monster("Familia feliz", 1, bc_familia, p_familia)
 			@unused_monsters.push(familia)
 
 			# Roboggoth
-			bc_roboggoth = BadConsequence.newLevelSpecificTreasures("La quinta directiva primaria te obliga a perder 2 niveles y 1 tesoro de dos manos visible.",
+			bc_roboggoth = SpecificBadConsequence.new("La quinta directiva primaria te obliga a perder 2 niveles y 1 tesoro de dos manos visible.",
 				2, [TreasureKind::BOTHHANDS], [])
 			p_roboggoth = Prize.new(2, 1)
 			roboggoth = Monster.new_normal_monster("Roboggoth", 8, bc_roboggoth, p_roboggoth)
 			@unused_monsters.push(roboggoth)
 
 			# El espia
-			bc_espia = BadConsequence.newLevelSpecificTreasures("Te asusta en la noche. Pierdes un casco visible.", 0, [TreasureKind::HELMET], [])
+			bc_espia = SpecificadConsequence.new("Te asusta en la noche. Pierdes un casco visible.", 0, [TreasureKind::HELMET], [])
 			p_espia = Prize.new(1, 1)
 			espia = Monster.new_normal_monster("El espia", 5, bc_espia, p_espia)
 			@unused_monsters.push(espia)
 
 			# El lenguas
-			bc_lenguas = BadConsequence.newLevelNumberOfTreasures("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.", 2, 5, 0)
+			bc_lenguas = NumericBadConsequence.new("Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.", 2, 5, 0)
 			p_lenguas = Prize.new(1, 1)
 			lenguas = Monster.new_normal_monster("El lenguas", 20, bc_lenguas, p_lenguas)
 			@unused_monsters.push(lenguas)
       
       # El mal indecible impronunciable
-      bc_indecible = BadConsequence.newLevelSpecificTreasures("Pierdes 1 mano visible.", 0, [TreasureKind::ONEHAND], [])
+      bc_indecible = SpecificBadConsequence.new("Pierdes 1 mano visible.", 0, [TreasureKind::ONEHAND], [])
       p_indecible = Prize.new(3, 1)
       indecible = Monster.new_cultist_monster("El mal indecible impronunciable", 10, bc_indecible, p_indecible, -2)
       @unused_monsters.push(indecible)
       
       # Testigos oculares
-      bc_testigos = BadConsequence.newLevelNumberOfTreasures("Pierdes tus tesoros visibles. Jajaja.", 0, BadConsequence.MAXTREASURES, 0)
+      bc_testigos = NumericBadConsequence.new("Pierdes tus tesoros visibles. Jajaja.", 0, BadConsequence.MAXTREASURES, 0)
       p_testigos = Prize.new(2, 1)
       testigos = Monster.new_cultist_monster("Testigos oculares", 6, bc_testigos, p_testigos, 2)
       @unused_monsters.push(testigos)
       
       # El gran Cthulhu
-      bc_gran_cthulhu = BadConsequence.newDeath("Hoy no es tu dia de suerte. Mueres.")
+      bc_gran_cthulhu = DeathBadConsequence.new("Hoy no es tu dia de suerte. Mueres.")
       p_gran_cthulhu = Prize.new(2, 5)
       gran_cthulhu = Monster.new_cultist_monster("El gran Cthulhu", 20, bc_gran_cthulhu, p_gran_cthulhu, 4)
       @unused_monsters.push(gran_cthulhu)
       
       # Serpiente político
-      bc_politico = BadConsequence.newLevelNumberOfTreasures("Tu gobierno te recorta 2 niveles", 2, 0, 0)
+      bc_politico = NumericBadConsequence.new("Tu gobierno te recorta 2 niveles", 2, 0, 0)
       p_politico = Prize.new(2, 1)
       politico = Monster.new_cultist_monster("Serpiente politico", 8, bc_politico, p_politico, -2)
       @unused_monsters.push(politico)
       
       # Felpuggoth
-      bc_felpuggoth = BadConsequence.newLevelSpecificTreasures("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas.", 
+      bc_felpuggoth = SpecificBadConsequence.new("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas.", 
         0, [TreasureKind::HELMET, TreasureKind::ARMOR],
         [TreasureKind::ONEHAND, TreasureKind::ONEHAND, TreasureKind::ONEHAND, TreasureKind::ONEHAND,
          TreasureKind::BOTHHANDS, TreasureKind::BOTHHANDS, TreasureKind::BOTHHANDS, TreasureKind::BOTHHANDS])
@@ -313,13 +313,13 @@ module Napakalaki
       @unused_monsters.push(felpuggoth)
       
       # Shoggoth
-      bc_shoggoth = BadConsequence.newLevelNumberOfTreasures("Pierdes 2 niveles.", 2, 0, 0)
+      bc_shoggoth = NumericBadConsequence.new("Pierdes 2 niveles.", 2, 0, 0)
       p_shoggoth = Prize.new(4, 2)
       shoggoth = Monster.new_cultist_monster("Shoggoth", 16, bc_shoggoth, p_shoggoth, -4)
       @unused_monsters.push(shoggoth)
       
       # Lolitagooth
-      bc_lolita = BadConsequence.newLevelNumberOfTreasures("Pintalabios negro. Pierdes 2 niveles.", 2, 0, 0)
+      bc_lolita = NumericBadConsequence.new("Pintalabios negro. Pierdes 2 niveles.", 2, 0, 0)
       p_lolita = Prize.new(1, 1)
       lolita = Monster.new_cultist_monster("Lolitagooth", 2, bc_lolita, p_lolita, 3)
       @unused_monsters.push(lolita)
