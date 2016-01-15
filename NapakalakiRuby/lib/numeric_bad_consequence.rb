@@ -10,6 +10,8 @@ module Napakalaki
       @nVisibleTreasures = nVisible
       @nHiddenTreasures = nHidden
     end
+		
+		public_class_method :new
     
     def is_empty
       @nVisibleTreasures == 0 and @nHiddenTreasures == 0

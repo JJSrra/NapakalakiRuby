@@ -5,6 +5,7 @@
 require_relative 'player.rb'
 require_relative 'combat_result.rb'
 require_relative 'card_dealer.rb'
+require_relative 'cultist_player.rb'
 
 module Napakalaki
   require 'singleton'
@@ -21,7 +22,18 @@ module Napakalaki
     end
 
     def develop_combat
-      @currentPlayer.combat(@currentMonster)
+      result = @currentPlayer.combat(@currentMonster)
+			
+			if result == CombatResult::LOSEANDCONVERT
+				cultist = @dealer.next_cultist
+				converted_player = CultistPlayer.new(@currentPlayer, cultist)
+				
+				# Actualizar jugadores
+				@players[@players.index(@currentPlayer)] = converted_player
+				@currentPlayer = converted_player
+			end
+			
+			result
     end
 
     def discard_visible_treasures(treasures)
@@ -78,18 +90,18 @@ module Napakalaki
     end
     
     def next_player
-      if (@current_player == nil) then
+      if (@currentPlayer == nil) then
         indice = rand(@players.size)
       else
-        indice = @players.index(@current_player)
+        indice = @players.index(@currentPlayer)
         indice = (indice + 1) % @players.size
       end
       
-      @current_player = @players[indice]
+      @currentPlayer = @players[indice]
     end
 
     def next_turn_allowed
-      @current_player == nil or @current_player.valid_state
+      @currentPlayer == nil or @currentPlayer.valid_state
     end
 
     def set_enemies

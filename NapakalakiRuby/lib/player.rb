@@ -15,7 +15,7 @@ require_relative "dice.rb"
 
 module Napakalaki
   class Player
-    attr_reader :name, :dead, :hiddenTreasures, :visibleTreasures, :level
+    attr_reader :name, :dead, :hiddenTreasures, :visibleTreasures, :level, :pendingBadConsequence
 
     @@MAXLEVEL = 10
 
@@ -29,6 +29,17 @@ module Napakalaki
       @enemy = nil
       @pendingBadConsequence = nil
     end
+		
+		def copia(p)
+			@name = p.name
+      @level = p.level
+      @dead = p.dead
+      @canISteal = p.can_i_steal
+      @visibleTreasures = p.visibleTreasures
+      @hiddenTreasures = p.hiddenTreasures
+      @enemy = p.get_enemy
+      @pendingBadConsequence = p.pendingBadConsequence
+		end
 		
 		def self.MAXLEVEL
 			@@MAXLEVEL
@@ -56,8 +67,15 @@ module Napakalaki
         
       else
         apply_bad_consequence(m)
-        combat_result = CombatResult::LOSE
+				
+				if should_convert
+					combat_result = CombatResult::LOSEANDCONVERT
+				else
+					combat_result = CombatResult::LOSE
+				end
       end
+
+			puts combat_result
       combat_result
     end
 

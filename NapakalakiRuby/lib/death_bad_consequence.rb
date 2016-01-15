@@ -7,6 +7,8 @@ module Napakalaki
     def initialize(text)
       super(text, Player.MAXLEVEL, @@MAXTREASURES, @@MAXTREASURES)
     end
+		
+		public_class_method :new
     
     def to_s
       "#{@text}\n"

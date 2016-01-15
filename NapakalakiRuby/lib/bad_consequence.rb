@@ -8,6 +8,8 @@ module Napakalaki
     
     @@MAXTREASURES = 10
 		
+		private_class_method :new
+		
 		def self.MAXTREASURES
 			@@MAXTREASURES
 		end

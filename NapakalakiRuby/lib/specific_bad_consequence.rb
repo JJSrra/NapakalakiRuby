@@ -12,6 +12,8 @@ module Napakalaki
       @specificVisibleTreasures = tVisible
       @specificHiddenTreasures = tHidden
     end
+		
+		public_class_method :new
     
     def is_empty
       @specificVisibleTreasures.empty? and @specificHiddenTreasures.empty?

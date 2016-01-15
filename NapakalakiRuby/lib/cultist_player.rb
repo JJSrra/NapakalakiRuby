@@ -8,14 +8,7 @@ module Napakalaki
     @@totalCultistPlayers = 0
     
     def initialize(p,c)
-      @name = p.name
-      @level = p.level
-      @dead = p.dead
-      @canISteal = p.canISteal
-      @visibleTreasures = p.visibleTreasures
-      @hiddenTreasures = p.hiddenTreasures
-      @enemy = p.get_enemy
-      @pendingBadConsequence = p.pendingBadConsequence
+      copia(p)
       @myCultistCard = c
     end
     
@@ -24,7 +17,7 @@ module Napakalaki
     end
     
     def get_combat_level
-      super.get_combat_level * 1.20 + @myCultistCard.gained_levels * @@totalCultistPlayers
+      super * 1.20 + @myCultistCard.gained_levels * @@totalCultistPlayers
     end
     protected :get_combat_level
     
@@ -38,6 +31,7 @@ module Napakalaki
     end
     protected :should_convert
     
+		private
     def give_me_a_treasure
       @visibleTreasures.at(rand(@visibleTreasures.size))
     end
